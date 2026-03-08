@@ -1,0 +1,77 @@
+:root {
+    --main-radius: 0.4rem;
+    --note-color: #fff8a6;
+    --border-color: #ccc;
+    --button-color: #4CAF50;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 2rem;
+    background-image: url('Gemini_Generated_Image_79vk3h79vk3h79vk.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.new-note-grid {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.notes-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: var(--main-radius);
+    border: 0.06rem solid var(--border-color);
+    box-sizing: border-box;
+}
+
+button {
+    padding: 0.7rem 1.5rem;
+    border-radius: var(--main-radius);
+    border: none;
+    background-color: var(--button-color);
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.note {
+    background-color: var(--note-color);
+    padding: 1rem;
+    border-radius: var(--main-radius);
+    cursor: pointer;
+}
+
+#editor {
+    display: none;
+}
+
+.app {
+    display: flex;
+    gap: 2rem;
+}
+
+.sidebar {
+    width: 20%;
+}
+
+.notes-area {
+    width: 80%;
+}
