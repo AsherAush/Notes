@@ -1,3 +1,4 @@
+// מערך שמכיל את כל הפתקים
 let notes = [];
 
 let nextId = 1;
@@ -54,6 +55,7 @@ saveBtn.addEventListener("click", () => {
     editor.style.display = "none";
 
     renderNotes();
+});
 
 cancelBtn.addEventListener("click", () => {
     titleInput.value = "";
