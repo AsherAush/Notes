@@ -1,10 +1,7 @@
-// מערך שמכיל את כל הפתקים
 let notes = [];
 
-// משתנה שמתקדם כדי לתת לכל פתק ID ייחודי
 let nextId = 1;
 
-// נבחר את האלמנטים מה-DOM (הדף)
 const newNoteBtn = document.getElementById("newNoteBtn");
 const editor = document.getElementById("editor");
 const saveBtn = document.getElementById("saveBtn");
@@ -13,15 +10,14 @@ const titleInput = document.getElementById("title");
 const contentInput = document.getElementById("content");
 const notesContainer = document.getElementById("notes");
 
-// משתנה כדי לדעת אם אנחנו בעריכה של פתק קיים
 let editingId = null;
 
 newNoteBtn.addEventListener("click", () => {
-    editor.style.display = "grid"; // מציג את אזור העריכה
-    titleInput.value = "";          // מנקה את שדה הכותרת
-    contentInput.value = "";        // מנקה את שדה התוכן
-    saveBtn.textContent = "Save";   // לוודא שהכפתור כתוב "Save"
-    editingId = null;               // אנחנו לא בעריכה
+    editor.style.display = "grid"; 
+    titleInput.value = "";          
+    contentInput.value = "";        
+    saveBtn.textContent = "Save";  
+    editingId = null;               
 });
 
 saveBtn.addEventListener("click", () => {
@@ -39,14 +35,12 @@ saveBtn.addEventListener("click", () => {
     }
 
     if (editingId) {
-        // אנחנו בעריכה של פתק קיים
         const note = notes.find(n => n.id === editingId);
         note.title = title;
         note.content = content;
         editingId = null;
         saveBtn.textContent = "Save";
     } else {
-        // יצירת פתק חדש
         const note = {
             id: nextId++,
             title: title,
@@ -59,8 +53,7 @@ saveBtn.addEventListener("click", () => {
     contentInput.value = "";
     editor.style.display = "none";
 
-    renderNotes(); // מציג את כל הפתקים
-});
+    renderNotes();
 
 cancelBtn.addEventListener("click", () => {
     titleInput.value = "";
@@ -70,25 +63,21 @@ cancelBtn.addEventListener("click", () => {
     saveBtn.textContent = "Save";
 });
 function renderNotes() {
-    notesContainer.innerHTML = ""; // מנקה הכל
-
+    notesContainer.innerHTML = ""; 
     notes.forEach(note => {
         const noteDiv = document.createElement("div");
         noteDiv.className = "note";
         noteDiv.dataset.id = note.id;
 
-        // כותרת הפתק
         const titleDiv = document.createElement("div");
         titleDiv.className = "note-title";
         titleDiv.textContent = note.title;
 
-        // תוכן הפתק מוסתר בהתחלה
         const contentDiv = document.createElement("div");
         contentDiv.className = "note-content";
         contentDiv.textContent = note.content;
         contentDiv.style.display = "none"; // מסתיר בהתחלה
 
-        // כפתורי Edit / Delete
         const buttonsDiv = document.createElement("div");
         buttonsDiv.className = "note-buttons";
         buttonsDiv.style.display = "none"; // מסתירים בהתחלה
@@ -117,19 +106,16 @@ function renderNotes() {
         buttonsDiv.appendChild(editBtn);
         buttonsDiv.appendChild(deleteBtn);
 
-        // לחיצה על הפתק – מראה את התוכן והכפתורים
         noteDiv.addEventListener("click", () => {
             const isVisible = contentDiv.style.display === "block";
             contentDiv.style.display = isVisible ? "none" : "block";
             buttonsDiv.style.display = isVisible ? "none" : "flex";
         });
 
-        // הוספה ל-DIV של הפתק
         noteDiv.appendChild(titleDiv);
         noteDiv.appendChild(contentDiv);
         noteDiv.appendChild(buttonsDiv);
 
-        // מוסיפים לרשימת הפתקים
         notesContainer.appendChild(noteDiv);
     });
 }
