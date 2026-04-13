@@ -39,7 +39,6 @@ saveBtn.addEventListener("click", () => {
         note.title = title;
         note.content = content;
         editingId = null;
-        saveBtn.textContent = "Save";
     } else {
         const note = {
             id: nextId++,
@@ -61,7 +60,6 @@ cancelBtn.addEventListener("click", () => {
     contentInput.value = "";
     editor.style.display = "none";
     editingId = null;
-    saveBtn.textContent = "Save";
 });
 function renderNotes() {
     notesContainer.innerHTML = ""; 
@@ -77,11 +75,11 @@ function renderNotes() {
         const contentDiv = document.createElement("div");
         contentDiv.className = "note-content";
         contentDiv.textContent = note.content;
-        contentDiv.style.display = "none"; // מסתיר בהתחלה
+        contentDiv.style.display = "none"; 
 
         const buttonsDiv = document.createElement("div");
         buttonsDiv.className = "note-buttons";
-        buttonsDiv.style.display = "none"; // מסתירים בהתחלה
+        buttonsDiv.style.display = "none"; 
 
         const editBtn = document.createElement("button");
         editBtn.textContent = "✏️";
@@ -91,7 +89,7 @@ function renderNotes() {
             editor.style.display = "grid";
             titleInput.value = note.title;
             contentInput.value = note.content;
-            saveBtn.textContent = "Save";
+            saveBtn.textContent = "Update";
             editingId = note.id;
         });
 
