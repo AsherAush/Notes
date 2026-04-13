@@ -77,12 +77,11 @@ function renderNotes() {
         const contentDiv = document.createElement("div");
         contentDiv.className = "note-content";
         contentDiv.textContent = note.content;
-        contentDiv.style.display = "none"; // מסתיר בהתחלה
+        contentDiv.style.display = "none"; 
 
         const buttonsDiv = document.createElement("div");
         buttonsDiv.className = "note-buttons";
-        buttonsDiv.style.display = "none"; // מסתירים בהתחלה
-
+        buttonsDiv.style.display = "none";
         const editBtn = document.createElement("button");
         editBtn.textContent = "✏️";
         editBtn.className = "edit-btn";
